@@ -40,7 +40,7 @@ namespace ProductAPI.Services.BLServices
             Product product = _productRepository.Get(productId);
 
             productDetails.Rating = _ratingService.Calculate(product);
-            productDetails.Suggestion = _ratingService.GetSuggestion(product.Id);
+            productDetails.Suggestion = _ratingService.GetSuggestion(product);
 
             return productDetails;
         }

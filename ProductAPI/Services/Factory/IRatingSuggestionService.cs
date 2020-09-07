@@ -1,7 +1,9 @@
-﻿namespace ProductAPI.Services.Factory
+﻿using ProductAPI.Models;
+
+namespace ProductAPI.Services.Factory
 {
     public interface IRatingSuggestionService : IRatingService
     {
-        string GetSuggestion(int productId);
+        string GetSuggestion(Product product);
     }
 }

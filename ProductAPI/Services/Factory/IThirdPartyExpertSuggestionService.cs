@@ -7,8 +7,8 @@ namespace ProductAPI.Services.Factory
 {
     public interface IThirdPartyExpertSuggestionService
     {
-        double GetRating(int productId);
-        string GetSuggestion(int productId);
+        double GetRating(string productName, double screenSize);
+        string GetSuggestion(string productName, double screenSize);
 
     }
 }

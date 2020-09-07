@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProductAPI.Services.Factory
 {
-    public class RatingSuggestionFactory
+    public class RatingSuggestionFactory : IRatingSuggestionFactory
     {
         private IRatingSuggestionService _standardService;
         private IRatingSuggestionService _expertService;

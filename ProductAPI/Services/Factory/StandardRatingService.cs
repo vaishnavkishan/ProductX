@@ -18,7 +18,7 @@ namespace ProductAPI.Services.Factory
             return new Random().Next(10);
         }
 
-        public string GetSuggestion(int productId)
+        public string GetSuggestion(Product product)
         {
             //Return standard suggestion.
             return "This is a test suggestion";

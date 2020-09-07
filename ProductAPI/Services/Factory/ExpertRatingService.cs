@@ -23,12 +23,12 @@ namespace ProductAPI.Services.Factory
             }
 
             //Some rating calculations based on specifications.
-            return _thirdPartyExpertSuggestionService.GetRating(product.Id);
+            return _thirdPartyExpertSuggestionService.GetRating(product.Name, 12);
         }
 
-        public string GetSuggestion(int productId)
+        public string GetSuggestion(Product product)
         {
-            return _thirdPartyExpertSuggestionService.GetSuggestion(productId);
+            return _thirdPartyExpertSuggestionService.GetSuggestion(product.Name, 12);
         }
     }
 }
