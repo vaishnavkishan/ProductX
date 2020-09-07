@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace ProductAPI.Services.BLServices
 {
     //Would have used some library.
-    public class LengthConverterService
+    public class LengthConverterService : ILengthConverterService
     {
-        private double ConvertCmToInch(double cm) => cm / 2.54;
+        public double ConvertCmToInch(double cm) => cm / 2.54;
     }
 }

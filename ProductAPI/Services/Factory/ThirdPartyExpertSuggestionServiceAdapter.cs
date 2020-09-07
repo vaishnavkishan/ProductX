@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProductAPI.Services.BLServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,20 +14,23 @@ namespace ProductAPI.Services.Factory
     public class ThirdPartyExpertSuggestionServiceAdapter : IThirdPartyExpertSuggestionService
     {
         private readonly IThirdPartyExpertSuggestionService _thirdPartyExpertSuggestionService;
+        private readonly ILengthConverterService _lengthConverterService;
 
-        public ThirdPartyExpertSuggestionServiceAdapter(IThirdPartyExpertSuggestionService thirdPartyExpertSuggestionService)
+        public ThirdPartyExpertSuggestionServiceAdapter(IThirdPartyExpertSuggestionService thirdPartyExpertSuggestionService,
+            ILengthConverterService lengthConverterService)
         {
             _thirdPartyExpertSuggestionService = thirdPartyExpertSuggestionService;
+            this._lengthConverterService = lengthConverterService;
         }
         public double GetRating(string productName, double screenSize)
         {
-            double screenSizeInch = ConvertCmToInch(screenSize);
+            double screenSizeInch = _lengthConverterService.ConvertCmToInch(screenSize);
             return _thirdPartyExpertSuggestionService.GetRating(productName, screenSizeInch);
         }
 
         public string GetSuggestion(string productName, double screenSize)
         {
-            double screenSizeInch = ConvertCmToInch(screenSize);
+            double screenSizeInch = +_lengthConverterService.ConvertCmToInch(screenSize);
 
             //Call third party APIs to get suggestions.
             return _thirdPartyExpertSuggestionService.GetSuggestion(productName, screenSizeInch);
